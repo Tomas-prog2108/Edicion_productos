@@ -4,13 +4,13 @@ from fastapi import APIRouter, Form, Request
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
 
-from dependencias import ConnectionDep
-from esquemas import ProductoActualizar
-from repositorio import actualizar_producto, obtener_producto, obtener_productos
+from nucleo.conexion import ConnectionDep
+from dominio.esquemas import ProductoActualizar
+from dominio.repositorios import actualizar_producto, obtener_producto, obtener_productos
 
 router = APIRouter(tags=["productos"])
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="presentacion/templates")
 
 
 @router.get("/productos")

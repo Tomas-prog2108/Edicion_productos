@@ -1,4 +1,7 @@
+from typing import Annotated
+
 import asyncpg
+from fastapi import Depends
 
 
 class Db:
@@ -23,3 +26,7 @@ async def get_connection():
     """Dependencia de FastAPI: cede una conexión del pool a cada petición."""
     async with db.pool.acquire() as conn:
         yield conn
+
+
+# Así las vistas reciben la conexión de la base de datos como parámetro.
+ConnectionDep = Annotated[asyncpg.Connection, Depends(get_connection)]

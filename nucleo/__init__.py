@@ -1,0 +1,1 @@
+"""Capa 2 — Lógica. Reglas de la biblioteca, validación y repositorios."""
